@@ -36,8 +36,8 @@ def remove_slicer(request):
 def add_slicer(request):
     try:
         name = json.loads(request.body).lower()
-    except ValueError:
-        request.errors.add('name', 'body', 'should be a JSON object')
+    except:
+        request.errors.add('name', 'body', 'should be a string JSON object')
         return "DAMN."
 
     if name not in SLICERS:
